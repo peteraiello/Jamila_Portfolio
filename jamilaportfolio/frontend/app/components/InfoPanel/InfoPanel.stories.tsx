@@ -6,12 +6,16 @@ export default {
 }
 
 export const InfoPanelExample = () => {
-    return (
-        <>
-            <InfoPanel 
-                title={"Lorem ipsum."} 
-                blurb={"Lorem ipsum."}
-            />
-        </>
+    return (    
+        <InfoPanel 
+            index={1}
+            block={
+                {   
+                    _type: "infoPanel",
+                    title: "Lorem ipsum",
+                    blurb: "Lorem ipsum"    
+                }
+            }
+        />
     )
 }

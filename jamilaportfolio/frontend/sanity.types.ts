@@ -47,6 +47,12 @@ export type InfoSection = {
   content?: BlockContent
 }
 
+export type InfoPanelBlock = {
+  _type: 'infoPanel',
+  title: string,
+  blurb: string
+}
+
 export type BlockContent = Array<{
   children?: Array<{
     marks?: Array<string>

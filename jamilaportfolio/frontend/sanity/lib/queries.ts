@@ -40,6 +40,15 @@ export const getPageQuery = defineQuery(`
       _type == "callToAction" => {
         ${linkFields},
       },
+      _type == "infoPanel" => {
+        content[]{
+          ...,
+          markDefs[]{
+            ...,
+            ${linkReference}
+          }
+        }
+      },
       _type == "infoSection" => {
         content[]{
           ...,

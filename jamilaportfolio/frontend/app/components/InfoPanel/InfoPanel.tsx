@@ -1,22 +1,23 @@
-interface InfoPanelProps {
-    title?: string,
-    blurb?: string 
+import { InfoPanelBlock } from "@/sanity.types"
+
+type InfoPanelProps = {
+    block: InfoPanelBlock,
+    index: number
 }
 
 export const InfoPanel = ({
-    title,
-    blurb
+    block
 }:InfoPanelProps) => {
     return (
         <div>
-            {title && 
+            {block.title && 
                 <h1 className={"text-amber-400 font-bold"}>
-                    {title}
+                    {block?.title}
                 </h1>
             }
-            {blurb && 
+            {block?.blurb && 
                 <p className="text-2xl">
-                    {blurb}
+                    {block?.blurb}
                 </p>
             }
         </div>
