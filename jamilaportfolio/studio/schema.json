@@ -156,37 +156,6 @@
     }
   },
   {
-    "name": "infoPanel",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "infoPanel"
-          }
-        },
-        "title": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "blurb": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "inline",
-            "name": "blockContent"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "infoSection",
     "type": "type",
     "value": {
@@ -214,6 +183,37 @@
           "optional": true
         },
         "content": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "blockContent"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "infoPanel",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "infoPanel"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },   
+        "blurb": {
           "type": "objectAttribute",
           "value": {
             "type": "inline",
@@ -1035,6 +1035,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "infoSection"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "infoPanel"
                 }
               }
             ]

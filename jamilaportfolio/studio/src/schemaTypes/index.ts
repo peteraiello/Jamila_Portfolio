@@ -2,6 +2,7 @@ import {person} from './documents/person'
 import {page} from './documents/page'
 import {post} from './documents/post'
 import {callToAction} from './objects/callToAction'
+import {infoPanel} from './objects/infoPanel'
 import {infoSection} from './objects/infoSection'
 import {settings} from './singletons/settings'
 import {link} from './objects/link'
@@ -18,6 +19,7 @@ export const schemaTypes = [
   person,
   // Objects
   blockContent,
+  infoPanel,
   infoSection,
   callToAction,
   link,

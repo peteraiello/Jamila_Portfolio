@@ -1,13 +1,14 @@
-import { InfoPanelBlock } from "@/sanity.types"
+import {type PortableTextBlock} from 'next-sanity'
+import {InfoPanel} from '@/sanity.types'
+import { PortableText } from 'next-sanity'
 
 type InfoPanelProps = {
-    block: InfoPanelBlock,
+    block: InfoPanel,
     index: number
 }
 
-export const InfoPanel = ({
-    block
-}:InfoPanelProps) => {
+export default function InfoPanelBlock({block}: InfoPanelProps) {
+    console.log("block ", block);
     return (
         <div>
             {block.title && 
@@ -15,10 +16,8 @@ export const InfoPanel = ({
                     {block?.title}
                 </h1>
             }
-            {block?.blurb && 
-                <p className="text-2xl">
-                    {block?.blurb}
-                </p>
+            {block?.blurb?.length &&                
+                <PortableText value={block.blurb as PortableTextBlock[]} />
             }
         </div>
     )

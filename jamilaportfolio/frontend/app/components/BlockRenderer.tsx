@@ -2,7 +2,7 @@ import React from 'react'
 
 import Cta from '@/app/components/Cta'
 import Info from '@/app/components/InfoSection'
-import { InfoPanel } from './InfoPanel/InfoPanel'
+import InfoPanel from '@/app/components/InfoPanel/InfoPanel'
 import {dataAttr} from '@/sanity/lib/utils'
 
 type BlocksType = {
@@ -24,14 +24,17 @@ type BlockProps = {
 const Blocks: BlocksType = {
   callToAction: Cta,
   infoSection: Info,
-  InfoPanel: InfoPanel
+  infoPanel: InfoPanel
 }
 
 /**
  * Used by the <PageBuilder>, this component renders a the component that matches the block type.
  */
 export default function BlockRenderer({block, index, pageId, pageType}: BlockProps) {
+  // console.log("block", block?._type);
   // Block does exist
+  console.log("block", block);
+
   if (typeof Blocks[block._type] !== 'undefined') {
     return (
       <div
