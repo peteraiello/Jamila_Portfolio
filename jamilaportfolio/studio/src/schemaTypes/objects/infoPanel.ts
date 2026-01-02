@@ -17,6 +17,19 @@ export const infoPanel = defineType({
       title: 'Blurb',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'image',
+      type: 'image', 
+      options: {
+        hotspot: true
+      },
+      fields: [
+        defineField({
+          name: "altText",
+          type: "string"
+        })
+      ]
+    })
   ],
   preview: {
     select: {

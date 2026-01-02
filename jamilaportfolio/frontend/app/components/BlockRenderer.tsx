@@ -2,7 +2,7 @@ import React from 'react'
 
 import Cta from '@/app/components/Cta'
 import Info from '@/app/components/InfoSection'
-import InfoPanel from '@/app/components/InfoPanel/InfoPanel'
+import InfoPanel from '@/app/modules/InfoPanel/InfoPanel'
 import {dataAttr} from '@/sanity/lib/utils'
 
 type BlocksType = {

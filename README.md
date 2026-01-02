@@ -4,6 +4,10 @@ v22.21.1
 # Build commands 
 `npm run dev`
 
+`http://localhost:3000` The dev URL
+
+`http://localhost:3333` Sanity CMS URL 
+
 # Sanity docs
 https://www.sanity.io/docs/help/cli-errors
 
