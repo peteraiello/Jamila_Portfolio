@@ -1,10 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import InfoPanelBlock from './InfoPanel';
 import type { Meta, StoryObj } from "@storybook/react"
-import DemoImageOne from "../../../public/images/demo/demo_image__one.jpg"
 
 const DEMO_IMAGE = {
-    src: DemoImageOne?.src,
+    src: "/images/demo/demo_image__one.jpg",
     alt: "Demo Image One",
     width: 285,
     height: 380

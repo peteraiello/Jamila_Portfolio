@@ -25,7 +25,7 @@ const CustomImage = (props: CustomImageProps) => {
   ) 
   : source?.url ? 
     <Image
-      className="object-cover"
+      className="object-cover w-full"
       width={source?.width}
       height={source?.height}
       alt={source?.altText}
