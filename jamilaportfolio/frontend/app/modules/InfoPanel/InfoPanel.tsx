@@ -13,6 +13,9 @@ export type InfoPanelProps = {
 const InfoPanelBlock = ({
     block
 }:InfoPanelProps) => {
+
+    console.log("block", block?.image);
+    
     return (
         <section className="info-panel container">            
             {block.title && 
@@ -23,7 +26,7 @@ const InfoPanelBlock = ({
             {block?.blurb && Boolean(block?.blurb?.length > 0) && 
                 <PortableText value={block.blurb as PortableTextBlock[]} />
             } 
-            {block?.image?.asset?._ref || block?.image?.url &&
+            {block?.image?.asset?._ref &&
                 <div className='w-[300px] h-[300px] rounded-full overflow-hidden object-cover'>
                     <CustomImage 
                         image={block?.image}

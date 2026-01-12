@@ -3,6 +3,7 @@ import Image from "next/image"
 import {stegaClean} from '@sanity/client/stega'
 import {getImageDimensions} from '@sanity/asset-utils'
 import {urlForImage} from '@/sanity/lib/utils'
+import demoImage from "../../../public/images/demo/demo_image__one.jpg"
  
 interface CustomImageProps {
   image: any
@@ -13,9 +14,9 @@ const CustomImage = (props: CustomImageProps) => {
   
   const {image: source, priority} = props;
 
-  const image = source?.asset?._ref ? (
+  const image = (
     <SanityImage
-      className="object-cover"
+      className="object-cover w-full"
       width={getImageDimensions(source).width}
       height={getImageDimensions(source).height}
       alt={stegaClean(source?.alt) || ''}
@@ -23,22 +24,11 @@ const CustomImage = (props: CustomImageProps) => {
       priority={priority}
     />
   ) 
-  : source?.url ? 
-    <Image
-      className="object-cover w-full"
-      width={source?.width}
-      height={source?.height}
-      alt={source?.altText}
-      src={source?.url}
-      priority={priority}
-    >
-    </Image>
-  :
-    null 
+
 
   return (
     <>
-      {image}
+      { image }
     </>
   )
 }

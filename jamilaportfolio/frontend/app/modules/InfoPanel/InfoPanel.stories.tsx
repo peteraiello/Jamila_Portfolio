@@ -1,13 +1,26 @@
 import { v4 as uuidv4 } from 'uuid';
 import InfoPanelBlock from './InfoPanel';
 import type { Meta, StoryObj } from "@storybook/react"
+import { DEMO_IMAGE } from '@/public/images/demo_images';
 
+/*
 const DEMO_IMAGE = {
     src: "/images/demo/demo_image__one.jpg",
     alt: "Demo Image One",
     width: 285,
     height: 380
 }
+*/
+/*
+const DEMO_IMAGE = {
+    _type: "image",
+    altText: "Jamila with yellow",
+    asset: {
+        _ref: "image-1c2c5b4c2b11bab07b6f4f542d4f9ec1beb99310-285x380-jpg",
+        _type: "reference"
+    }
+}
+*/
 
 const meta = {
     title: "modules/InfoPanelBlock",
@@ -29,12 +42,7 @@ export const Primary: Story = {
         index: 1,
         block: {
             title: "This is the title field",
-            image: {
-                url: DEMO_IMAGE?.src,
-                altText: DEMO_IMAGE?.alt,
-                width: DEMO_IMAGE?.width,
-                height: DEMO_IMAGE?.height
-            },
+            image: DEMO_IMAGE,
             _type: "infoPanel",
             blurb: [{
                 _key: uuidv4(),

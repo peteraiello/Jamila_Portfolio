@@ -47,40 +47,10 @@ export type InfoSection = {
   content?: BlockContent
 }
 
-export type CustomImageProps = {
-  altText?: string,
-  url?: string,
-  width?: Number,
-  height?: Number,
-  asset?: {
-    _ref?: string, 
-    _type?: string,
-  }
-  _type?: "image"
-}
-
 export type InfoPanel = {
   _type: 'infoPanel'
   title?: string
   blurb?: BlockContent
-  image?: CustomImageProps
-}
-
-export type ButtonProps = {
-  _type: 'link',
-  linkType?: 'href' | 'page' | 'post',
-  href?: string, 
-  page?: string | null,
-  post?: string | null, 
-  openInNewTab?: boolean
-}        
-
-export type ImageTextBlockProps = {
-  _type: "imageText",
-  title?: string, 
-  content?: BlockContent,
-  image?: ImageProps,
-  button?: ButtonProps
 }
 
 export type BlockContent = Array<{
@@ -824,7 +794,6 @@ export type PagesSlugsResult = Array<{
 
 // Query TypeMap
 import '@sanity/client'
-import { ImageProps } from 'next-sanity/image'
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "settings"][0]': SettingsQueryResult

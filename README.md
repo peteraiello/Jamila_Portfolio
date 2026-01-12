@@ -1,12 +1,19 @@
 # Node version 
 v22.21.1
 
-# Build commands 
-`npm run dev`
+# Start
+
+From the directory `jamiladirectory` run `yarn run dev`
+
+For storybook, change into directory `jamilaportfolio/frontend` and run `yarn run storybook`
 
 `http://localhost:3000` The dev URL
 
 `http://localhost:3333` Sanity CMS URL 
+
+`http://localhost:6006` Storybook
+
+Then run `yarn run storybook`
 
 # Sanity docs
 https://www.sanity.io/docs/help/cli-errors
