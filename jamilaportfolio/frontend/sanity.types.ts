@@ -51,7 +51,6 @@ export type InfoPanel = {
   _type: 'infoPanel'
   title?: string
   blurb?: BlockContent
-  image?: any
 }
 
 export type BlockContent = Array<{

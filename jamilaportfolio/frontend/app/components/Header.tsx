@@ -1,55 +1,89 @@
+
+'use client'
 import Link from 'next/link'
 import {settingsQuery} from '@/sanity/lib/queries'
 import {sanityFetch} from '@/sanity/lib/live'
+import { menuData } from '../data/header-data'
+import Image from "next/image"
+import logo from "../../public/images/logo.svg"
+import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
+import classNames from 'classnames';
 
-export default async function Header() {
-  const {data: settings} = await sanityFetch({
-    query: settingsQuery,
-  })
+export default function Header() {
+
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const toggleClicked = () => {
+    return setToggleMenu(!toggleMenu);
+  }
 
   return (
-    <header className="fixed z-50 h-24 inset-0 bg-white/80 flex items-center backdrop-blur-lg">
+    <>
+    <header className="fixed z-50 h-24 inset-0 bg-primary flex items-center backdrop-blur-lg">
       <div className="container py-6 px-2 sm:px-6">
         <div className="flex items-center justify-between gap-5">
-          <Link className="flex items-center gap-2" href="/">
-            <span className="text-lg sm:text-2xl pl-2 font-semibold">
-              {settings?.title || 'Sanity + Next.js'}
-            </span>
-          </Link>
-
-          <nav>
-            <ul
-              role="list"
-              className="flex items-center gap-4 md:gap-6 leading-5 text-xs sm:text-base tracking-tight font-mono"
-            >
-              <li>
-                <Link href="/about" className="hover:underline">
-                  About
-                </Link>
-              </li>
-
-              <li className="sm:before:w-[1px] sm:before:bg-gray-200 before:block flex sm:gap-4 md:gap-6">
-                <Link
-                  className="rounded-full flex gap-4 items-center bg-black hover:bg-blue focus:bg-blue py-2 px-4 justify-center sm:py-3 sm:px-6 text-white transition-colors duration-200"
-                  href="https://github.com/sanity-io/sanity-template-nextjs-clean"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="whitespace-nowrap">View on GitHub</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="hidden sm:block h-4 sm:h-6"
-                  >
-                    <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path>
-                  </svg>
-                </Link>
-              </li>
-            </ul>
+          <div className='max-w-[187px]'>
+            <Link className="flex items-center gap-2" href="/">
+              <Image 
+                width={500}
+                height={500}
+                src={logo.src}
+                alt="Jamila Akhtar Work Portfolio"
+              />
+            </Link>
+          </div>
+          <a href="#" className='block lg:hidden' onClick={() => toggleClicked()}>
+            <div className='w-[44px]'>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
+            </div>
+          </a>
+          {/* Desktop nav start */}
+          <nav className='desktop nav hidden lg:block'>          
+            {Boolean(menuData && menuData?.length > 0) &&
+              <ul
+                role="list"
+                className="flex items-center gap-4 md:gap-6 leading-5 text-xs sm:text-base tracking-tight font-mono"
+              >            
+                {menuData?.map((item) => {
+                  return (
+                    <li key={uuidv4()} className='text-tertiary'>
+                      <Link href={item?.link}>{item?.title}</Link>
+                    </li>
+                  )
+                })}                    
+              </ul>
+            }
           </nav>
-        </div>
+          {/* Desktop nav end */}      
+        </div>             
       </div>
     </header>
+    {/* Mobile nav start */}
+    <nav className={
+      'mobile-nav flex mt-4 justify-center relative w-full overflow-hidden'    
+    }>          
+      {Boolean(menuData && menuData?.length > 0) &&
+        <ul
+          role="list"
+          className={
+            classNames(
+              toggleMenu ? "h-full lg:h-0" : "h-0 ",
+              "flex flex-col text-tertiary items-center gap-4 md:gap-6 leading-5 text-xs sm:text-base tracking-tight font-mono"
+            )
+          }
+        >            
+          {menuData?.map((item, index) => {
+            return (
+              <li key={uuidv4()}>
+                <Link href={item?.link}>{item?.title}</Link>
+              </li>
+            )
+          })}                    
+        </ul>
+      }
+    </nav>
+    {/* Mobile nav end */}
+ </>
   )
 }

@@ -3,25 +3,6 @@ import InfoPanelBlock from './InfoPanel';
 import type { Meta, StoryObj } from "@storybook/react"
 import { DEMO_IMAGE } from '@/public/images/demo_images';
 
-/*
-const DEMO_IMAGE = {
-    src: "/images/demo/demo_image__one.jpg",
-    alt: "Demo Image One",
-    width: 285,
-    height: 380
-}
-*/
-/*
-const DEMO_IMAGE = {
-    _type: "image",
-    altText: "Jamila with yellow",
-    asset: {
-        _ref: "image-1c2c5b4c2b11bab07b6f4f542d4f9ec1beb99310-285x380-jpg",
-        _type: "reference"
-    }
-}
-*/
-
 const meta = {
     title: "modules/InfoPanelBlock",
     component: InfoPanelBlock,

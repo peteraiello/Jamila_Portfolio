@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import ImageText, {ImageTextProps} from './ImageText';
 import type { Meta, StoryObj } from "@storybook/react"
+import { DEMO_IMAGE } from '@/public/images/demo_images';
 
 const meta = {
     title: "modules/ImageText",
@@ -22,6 +23,7 @@ export const Primary: Story = {
         index: 1,
         block: {
             title: "This is the title field",
+            image: DEMO_IMAGE,
             _type: "imageText",
             content: [{
                 _key: uuidv4(),

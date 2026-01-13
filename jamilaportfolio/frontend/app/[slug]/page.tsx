@@ -46,7 +46,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function Page(props: Props) {
   const params = await props.params
+
   const [{data: page}] = await Promise.all([sanityFetch({query: getPageQuery, params})])
+
+  const pageSlug = page?.slug?.current; 
 
   if (!page?._id) {
     return (
@@ -75,7 +78,19 @@ export default async function Page(props: Props) {
           </div>
         </div>
       </div>
-      <PageBuilderPage page={page as GetPageQueryResult} />
+      <p>{page?._id.toString()}</p>
+
+      {pageSlug === "portfolio" ? 
+        <>Portfolio</>
+      : pageSlug === "experience" ? 
+        <>Experience</>
+      : pageSlug === "about" ? 
+        <>About</>
+      : pageSlug === "contact" ? 
+        <>Contact</>
+      :
+        <>Sorry! No page found.</>
+      }
     </div>
   )
 }
