@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ImageTextBlockProps } from "@/sanity.types";
 import { PortableText } from "next-sanity";
 import { PortableTextBlock } from "next-sanity";
-import { getBackgroundClass } from "@/app/utils/getBackgroundClass";
 import CustomImage from "@/app/components/Image/CustomImage";
 
 export type ImageTextProps = {

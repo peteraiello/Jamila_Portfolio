@@ -53,6 +53,13 @@ export type InfoPanel = {
   blurb?: BlockContent
 }
 
+export type ImageTextBlockProps = {
+  _type: 'imageText'
+  title?: string
+  content?: BlockContent
+  image?: any
+}
+
 export type BlockContent = Array<{
   children?: Array<{
     marks?: Array<string>
